@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Add activity</title>
+</head>
+<body>
+<header th:insert="header.html :: header"> </header>
+    <div class="container-fluid">
+        <section class="container my-2 w-50 bg-dark text-light p-2">
+            <h1>Activity Add Form</h1>
+            <form action="#" th:action="@{/activities/submit}" th:object="${activity}" method="post">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" th:field="*{name}" placeholder="Activity name">
+                        <div th:if="${#fields.hasErrors('name')}" class="text-danger">
+                            <p th:errors="*{name}"></p>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="description">Description</label>
+                        <input type="text" class="form-control" id="description" th:field="*{description}" placeholder="Description">
+                        <div th:if="${#fields.hasErrors('description')}" class="text-danger">
+                            <p th:errors="*{description}"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <label>Activity category:</label>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="sport" name="category" th:field="*{category}" value="SPORT" class="custom-control-input">
+                    <label class="custom-control-label" for="sport">Sport</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="dance" name="category" th:field="*{category}" value="DANCE" class="custom-control-input">
+                    <label class="custom-control-label" for="dance">Dance</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="language" name="category" th:field="*{category}" value="LANGUAGE" class="custom-control-input">
+                    <label class="custom-control-label" for="language">Language</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="course" name="category" th:field="*{category}" value="COURSE" class="custom-control-input">
+                    <label class="custom-control-label" for="course">Course</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="art" name="category" th:field="*{category}" value="ART" class="custom-control-input">
+                    <label class="custom-control-label" for="art">Art</label>
+                </div>
+                <div th:if="${#fields.hasErrors('category')}" class="text-danger">
+                    <p th:errors="*{category}"></p>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="price">Price</label>
+                        <input type="text" class="form-control" id="price" th:field="*{price}" placeholder="01.00$">
+                        <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}">price Error</p>
+                        <div th:if="${#fields.hasErrors('price')}" class="text-danger">
+                            <p th:errors="*{price}"></p>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="duration">Duration</label>
+                        <input type="text" class="form-control" id="duration" th:field="*{duration}" placeholder="Duration(minutes)">
+                        <p th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}">duration Error</p>
+                        <div th:if="${#fields.hasErrors('duration')}" class="text-danger">
+                            <p th:errors="*{duration}"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputState">City</label>
+                        <select id="inputState" class="form-control" th:field="*{city}">
+                            <option th:each="city : ${cities}" th:value="${city.id}" th:text="${city.name}"></option>
+                        </select>
+                        <div th:if="${#fields.hasErrors('city')}" class="text-danger">
+                            <p th:errors="*{city}"></p>
+                        </div>
+                    </div>
+                </div>
+                <div></div>
+                <label>Suitable age:</label>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="4-6years" name="suitableAge" th:field="*{suitableAge}" value="4-6 year" class="custom-control-input">
+                    <label class="custom-control-label" for="4-6years">4-6 year</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="7-10year" name="suitableAge" th:field="*{suitableAge}" value="7-10 year" class="custom-control-input">
+                    <label class="custom-control-label" for="7-10year">7-10 year</label>
+                </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" id="11andOlder" name="suitableAge" th:field="*{suitableAge}" value="11 and older" class="custom-control-input">
+                    <label class="custom-control-label" for="11andOlder">11 and older</label>
+                </div>
+                <div th:if="${#fields.hasErrors('suitableAge')}" class="text-danger">
+                    <p th:errors="*{suitableAge}"></p>
+                </div>
+                <div></div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<div class="container-fluid" th:fragment="header" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <header class="text-center">
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/activities/add}" sec:authorize="hasRole('ROLE_ADMIN')">Add activity</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/activities/get}" sec:authorize="hasRole('ADMIN')">Get activities</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/activities/get-activities}" sec:authorize="hasRole('ROLE_USER')">Activities</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" sec:authorize="isAuthenticated()" href="/profile">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" sec:authorize="!isAuthenticated()" href="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" sec:authorize="!isAuthenticated()" href="/register">Register</a>
+      </li>
+    </ul>
+  </header>
+</div>
