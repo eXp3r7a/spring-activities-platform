@@ -9,7 +9,7 @@
 <header th:insert="header.html :: header"></header>
 <table class="table align-middle">
     <ul class="list-group list-group-horizontal-md">
-        <li class="list-group-item" style="width: 10rem;">Activity ID</li>
+        <li class="list-group-item" style="width: 10rem;" sec:authorize="hasRole('ADMIN')">Activity ID</li>
         <li class="list-group-item" style="width: 10rem;">Activity name</li>
         <li class="list-group-item" style="width: 10rem;">Category</li>
         <li class="list-group-item" style="width: 10rem;">Description</li>
@@ -21,7 +21,7 @@
     <th:block th:each="activity : ${activities}">
         <tr>
             <ul class="list-group list-group-horizontal-md">
-                <li class="list-group-item" style="width: 10rem;" th:text="${activity.id}">Activity ID</li>
+                <li class="list-group-item" style="width: 10rem;" th:text="${activity.id}" sec:authorize="hasRole('ADMIN')">Activity ID</li>
                 <li class="list-group-item" style="width: 10rem;" th:text="${activity.name}">Activity name</li>
                 <li class="list-group-item" style="width: 10rem;" th:text="${activity.category}">Category</li>
                 <li class="list-group-item" style="width: 10rem;" th:text="${activity.description}">Description</li>
