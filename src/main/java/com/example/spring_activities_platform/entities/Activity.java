@@ -29,10 +29,10 @@ public class Activity {
     @Min(1)
     private int duration; // in minutes;
 
-    @NotNull
+    @NotNull(message = "Must select suitable age!")
     private String suitableAge;
 
-    @NotNull
+    @NotNull(message = "Must select category!")
     private ActivityCategory category;
 
     @NotNull

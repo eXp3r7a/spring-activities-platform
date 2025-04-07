@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class CommentDTO {
-    @Size(min = 2, max = 511)
+    @Size(min = 2, max = 511, message = "Enter comment. Can`t send empty field!")
     private String comment;
 
     public String getComment() {

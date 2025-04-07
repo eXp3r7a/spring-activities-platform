@@ -122,7 +122,7 @@ public class ActivityService {
 
     public String submitActivityToDB(@Valid @ModelAttribute Activity activity, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
-            model.addAttribute("activity", new Activity());
+            //model.addAttribute("activity", new Activity());
             model.addAttribute("cities", cityRepository.findAll());
 
             return "activities/add_form";

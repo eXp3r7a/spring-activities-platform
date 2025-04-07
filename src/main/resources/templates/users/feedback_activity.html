@@ -42,6 +42,9 @@
       <form action="#" th:action="@{/activities/rate(id=${activity.id})}" th:object="${rateDTO}" method="get" style="display:inline;">
         <input type="hidden" name="activity_id" th:value="${activity.id}">
         <input type="number" class="form-control" placeholder="Rate(1-10)" th:field="*{rate}" aria-label="rate">
+        <div th:if="${#fields.hasErrors('rate')}" class="text-danger">
+          <p th:errors="*{rate}"></p>
+        </div>
         <button class="btn btn-primary" type="submit">Give rate</button>
       </form>
     </div>
@@ -57,6 +60,9 @@
       <form action="#" th:action="@{/activities/comment(id=${activity.id})}" th:object="${commentDTO}" method="get" style="display:inline;">
         <input type="hidden" name="activity_id" th:value="${activity.id}">
         <input type="text" class="form-control" placeholder="Comment" th:field="*{comment}" aria-label="comment">
+        <div th:if="${#fields.hasErrors('comment')}" class="text-danger">
+          <p th:errors="*{comment}"></p>
+        </div>
         <button class="btn btn-primary" type="submit">Comment</button>
       </form>
     </div>

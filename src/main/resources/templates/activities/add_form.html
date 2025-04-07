@@ -60,17 +60,15 @@
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="price">Price</label>
-                        <input type="text" class="form-control" id="price" th:field="*{price}" placeholder="01.00$">
-                        <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}">price Error</p>
+                        <label for="price">Price(e.g., 01.00€)</label>
+                        <input type="text" class="form-control" id="price" th:value th:field="*{price}" placeholder="Enter price (e.g., 01.00€)">
                         <div th:if="${#fields.hasErrors('price')}" class="text-danger">
                             <p th:errors="*{price}"></p>
                         </div>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="duration">Duration</label>
-                        <input type="text" class="form-control" id="duration" th:field="*{duration}" placeholder="Duration(minutes)">
-                        <p th:if="${#fields.hasErrors('duration')}" th:errors="*{duration}">duration Error</p>
+                        <label for="duration">Duration(in minutes)</label>
+                        <input type="text" class="form-control" id="duration" th:field="*{duration}" placeholder="Enter duration (in minutes)">
                         <div th:if="${#fields.hasErrors('duration')}" class="text-danger">
                             <p th:errors="*{duration}"></p>
                         </div>
