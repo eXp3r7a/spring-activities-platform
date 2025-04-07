@@ -54,7 +54,7 @@ public class ActivityServiceTest {
         activityService.submitActivityToDB(activity,bindingResult,model);
 
         //THEN
-        verify(model,times(2)).addAttribute(anyString(), any());
+        verify(model,times(1)).addAttribute(anyString(), any());
     }
 
     @Test
